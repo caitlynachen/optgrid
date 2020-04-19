@@ -37,11 +37,11 @@ const instructions = () => (
 
       Each picture is associated with several other pictures. For example, this picture
 
-      <div>${renderSmallEmoji("🍫")}</div>
+      <div>${renderSmallEmoji("⚙️")}</div>
 
       might be associated with these three pictures:
 
-      <div>${renderSmallEmoji("🔮")}${renderSmallEmoji("🐳")}${renderSmallEmoji("🎁")}</div>
+      <div>${renderSmallEmoji("⚙️")}${renderSmallEmoji("⚙️")}${renderSmallEmoji("⚙️")}</div>
       `),
       choices: ['Continue'],
       button_html: '<button id="continuebutton" class="btn btn-primary">%choice%</button>',
