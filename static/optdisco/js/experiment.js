@@ -37,11 +37,11 @@ const instructions = () => (
 
       Each picture is associated with several other pictures. For example, this picture
 
-      <div>${renderSmallEmoji("🔮")}</div>
+      <div>${renderSmallEmoji("🍫")}</div>
 
       might be associated with these three pictures:
 
-      <div>${renderSmallEmoji("🔮")}${renderSmallEmoji("🔮")}${renderSmallEmoji("🔮")}</div>
+      <div>${renderSmallEmoji("🔮")}${renderSmallEmoji("🐳")}${renderSmallEmoji("🎁")}</div>
       `),
       choices: ['Continue'],
       button_html: '<button id="continuebutton" class="btn btn-primary">%choice%</button>',
@@ -226,8 +226,8 @@ async function initializeExperiment() {
 
   var timeline = _.flatten([
     instructions(),
-    c1,
-    c2,
+    onestep_2d,
+    onestep_5d,
     // gt,
     // pi,
     // finalPoints,
@@ -239,7 +239,7 @@ async function initializeExperiment() {
     // HACK Demo logic here!
     timeline = [
       {
-        type: searchParams.get('type') || 'ChallengeOne',
+        type: searchParams.get('type') || 'GraphTraining',
         graph: graph,
         graphics: gfx,
         timeline: trials,
