@@ -3,6 +3,10 @@ import {graphics, graphicsUrl, graphicsLoading} from './utils.js';
 import './jspsych-GraphTraining.js';
 import './jspsych-OneStepTraining.js';
 import './jspsych-PathIdentification.js';
+
+// import './jspsych-Instructions.js';
+import './ChallengeOne.js';
+import './ChallengeTwo.js';
 import '../../lib/jspsych-6.0.1/plugins/jspsych-html-button-response.js';
 
 // loading some data...
@@ -33,11 +37,11 @@ const instructions = () => (
 
       Each picture is associated with several other pictures. For example, this picture
 
-      <div>${renderSmallEmoji("🍫")}</div>
+      <div>${renderSmallEmoji("🔮")}</div>
 
       might be associated with these three pictures:
 
-      <div>${renderSmallEmoji("🔮")}${renderSmallEmoji("🐳")}${renderSmallEmoji("🎁")}</div>
+      <div>${renderSmallEmoji("🔮")}${renderSmallEmoji("🔮")}${renderSmallEmoji("🔮")}</div>
       `),
       choices: ['Continue'],
       button_html: '<button id="continuebutton" class="btn btn-primary">%choice%</button>',
@@ -175,6 +179,29 @@ async function initializeExperiment() {
   let updateProgress = makeUpdateProgress(trials.length + numSampledTasks);
 
   // const gfx = jsPsych.randomization.sampleWithoutReplacement(graphics, states.length);
+
+  var c1 = {
+    type: 'ChallengeOne',
+    graph: graph,
+    graphics: gfx,
+    timeline: trials,
+    on_finish() {
+      updateProgress();
+      saveData();
+    }
+  };
+
+  var c2 = {
+    type: 'ChallengeTwo',
+    graph: graph,
+    graphics: gfx,
+    timeline: trials,
+    on_finish() {
+      updateProgress();
+      saveData();
+    }
+  };
+
   var gt = {
     type: 'GraphTraining',
     graph: graph,
@@ -199,8 +226,8 @@ async function initializeExperiment() {
 
   var timeline = _.flatten([
     instructions(),
-    onestep_2d,
-    onestep_5d,
+    c1,
+    c2,
     // gt,
     // pi,
     // finalPoints,
@@ -212,7 +239,7 @@ async function initializeExperiment() {
     // HACK Demo logic here!
     timeline = [
       {
-        type: searchParams.get('type') || 'GraphTraining',
+        type: searchParams.get('type') || 'ChallengeOne',
         graph: graph,
         graphics: gfx,
         timeline: trials,

@@ -121,3 +121,87 @@
 .legal hr {
  border-color: #ccc;
 }
+
+
+
+@import url(https://unpkg.com/nes.css/css/nes-core.min.css);
+
+.App {
+  text-align: center;
+}
+
+#side-bar div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.2em;
+    padding: 0.2em;
+    max-width: 30em;
+}
+
+#side-bar div p {
+    margin-top: 0;
+    text-align: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  min-width: 60em;
+  justify-content: center;
+}
+
+body {
+  margin: 20px;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.clear {
+  clear: both;
+  content: ""
+}
+
+.board {
+  margin-left: 0.5em;
+  min-width: 25em;
+  justify-content: center
+}
+
+.cell {
+  border: 1px solid #414c69;
+  float: left;
+  line-height: 34px;
+  height: 34px;
+  text-align: center;
+  width: 34px;
+  cursor: pointer;
+}
+
+
+.cell:focus {
+  outline: none;
+}
+
+.is-wall {
+  background: #afafff;
+}
+
+/*.is-mine {
+  background: #ff8b8b;
+}*/
+
+.is-goal {
+  background: #ffff00;
+}
+
+#battery h2 {
+    padding-top: 1em;
+    margin: 0;
+}
+
+#battery progress {
+    margin: 0;
+    width: 100%;
+}
+
